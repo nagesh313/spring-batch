@@ -1,0 +1,32 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: sa
+    driverClassName: org.h2.Driver
+  zipkin:
+    base: http://localhost:9411/
+    enabled: false
+  application:
+    name: spring-batch-example
+  sleuth:
+    sampler:
+      probability: 1
+  boot:
+    admin:
+      client:
+        url: http://localhost:8080
+        enabled: false
+  h2:
+    console:
+      enabled: false
+      path: /h2-console
+      settings:
+        trace: true
+  jpa:
+    database: h2
+  batch:
+    job:
+      enabled: false
+resource-path: test/
